@@ -23,6 +23,6 @@ blocks:
       jobs:
       - name: Gcloud run deploy
         commands:
-          - gcloud run deploy graphql-on-rails-auth-docs --project graphql-on-rails --image gcr.io/graphql-on-rails/graphql-on-rails-auth-docs:1.0.0 --platform managed --port 5000 --region us-east1
+          - gcloud run deploy graphql-on-rails-auth-docs --project graphql-on-rails --image gcr.io/graphql-on-rails/graphql-on-rails-auth-docs:1.0.0 --platform managed --port 5000 --region us-east1 --allow-unauthenticated
           # Check if deployment was created successfully
           - gcloud run services list --platform managed --project graphql-on-rails
