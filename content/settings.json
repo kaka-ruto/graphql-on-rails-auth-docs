@@ -1,10 +1,6 @@
 {
-  "title": "GraphQL on Rails Auth System Docs",
+  "title": "GraphQL on Rails Auth",
   "url": "https://auth.graphql-on-rails.com",
-  "logo": {
-    "light": "/logo-light.svg",
-    "dark": "/logo-dark.svg"
-  },
   "github": "kaka-ruto/graphql-on-rails-auth-docs",
   "twitter": "@kaka_ruto"
 }
