@@ -1,7 +1,7 @@
 {
   "name": "graphql-on-rails-auth-docs",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

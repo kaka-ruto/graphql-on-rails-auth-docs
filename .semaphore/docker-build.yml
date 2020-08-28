@@ -1,0 +1,46 @@
+# .semaphore/docker-build.yml
+version: v1.0
+name: Docker build
+
+agent:
+  machine:
+    type: e1-standard-4
+    os_image: ubuntu1804
+
+blocks:
+  - name: Push image to GCR
+
+    task:
+      secrets:
+        - name: GCP
+
+      prologue:
+        commands:
+          # Authenticate using the file injected from the secret
+          - gcloud auth activate-service-account --key-file=.gcp.json
+          # Don't forget -q to silence confirmation prompts
+          - gcloud auth configure-docker -q
+          - checkout
+
+      jobs:
+      - name: Docker build
+        commands:
+          - docker build -t "gcr.io/graphql-on-rails/graphql-on-rails-auth-docs:1.0.0" .
+          - docker push "gcr.io/graphql-on-rails/graphql-on-rails-auth-docs:1.0.0"
+
+promotions:
+  # Automatically deploy to staging on successful builds on develop branch:
+  # - name: Deploy to staging
+  #   pipeline_file: deploy-staging.yml
+  #   auto_promote_on:
+  #     - result: passed
+  #       branch:
+  #         - develop
+
+  # Automatically depoy to production on successful builds on master branch:
+  - name: Deploy to production
+    pipeline_file: deploy-production.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - master
