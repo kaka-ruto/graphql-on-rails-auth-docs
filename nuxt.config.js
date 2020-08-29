@@ -10,4 +10,16 @@ export default theme({
   content: {
     dir: "content",
   },
+  /*
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [
+    // Doc: https://github.com/nuxt-community/analytics-module
+    [
+      "@nuxtjs/google-analytics",
+      {
+        id: "UA-176712234-1",
+      },
+    ],
+  ],
 });
