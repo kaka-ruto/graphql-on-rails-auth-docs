@@ -11,7 +11,7 @@ Before we create the API, we will need to install Ruby, a Ruby version manager a
 *All the examples in this doc will assume you are on a Mac. Nevertheless, I will include links throughout to show how you can run the same commands on other operating systems
 </alert>
 
-## Install asdf-vm
+## Install Ruby
 
 You can use any Ruby version-manager, such as RVM or Rbenv. We will use [asdf-vm](https://asdf-vm.com) as it can manage multiple runtime versions(different programming languages).
 
