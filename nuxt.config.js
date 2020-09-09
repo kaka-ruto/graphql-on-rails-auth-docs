@@ -18,8 +18,12 @@ export default theme({
     [
       "@nuxtjs/google-analytics",
       {
-        id: "UA-176712234-1",
+        id: process.env.googleAnalyticsId,
       },
     ],
   ],
+  // Env variables: https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
+  privateRuntimeConfig: {
+    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+  },
 });

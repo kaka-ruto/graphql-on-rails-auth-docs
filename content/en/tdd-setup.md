@@ -13,11 +13,13 @@ Before you add a feature, add a test for that feature first, watch the test fail
 
 Honestly, I can say that [TDD changed my life](https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80). Recommended read! Article by Eric Elliott, a strong TDD proponent like me :)
 
-## Install RSpec, FactoryBot, Faker, Database_cleaner, Rubocop
+## Install testing gems
 
 [RSpec](https://github.com/rspec/rspec-rails) is a loved testing framework in the Rails community. The Rails core team prefers [Minitest](https://github.com/seattlerb/minitest), which is still a good one!
 
 We will use RSpec.
+
+[shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) adds simple one-liner tests for common Rails functionality
 
 [FactoryBot](https://github.com/thoughtbot/factory_bot_rails) will help us write fixtures for our tests.
 
@@ -32,22 +34,19 @@ Add the gems to your `Gemfile` and run `bundle install` to install them
 
 ```ruby[Gemfile]
 group :development, :test do
-  ...
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   # Let us use the master version of Faker to get the latest but unreleased changes. We like living on the edge too :)
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  ...
 end
 ```
 
 ```ruby[Gemfile]
 group :test do
-  ...
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'database_cleaner'
-  ...
 end
 ```
 
@@ -71,18 +70,39 @@ Edit the generated `.rspec` file to some defaults
 --format documentation
 ```
 
+## Setup shoulda-matchers
+
+```
+mkdir spec/support && touch spec/support/shoulda_matchers.rb
+```
+
+This is a common operation - creating a folder and files in it. To reduce the typing, I made a handy script and called it [mkfile](https://github.com/kaka-ruto/dotfiles/blob/master/zsh/functions/mkfile). It creates the directory if it doesn't exist, and even adds it to git!
+
+Optional: you can copy it to your own `mkfile` file and use it like so
+
+```bash
+mkfile spec/support/shoulda_matchers.rb
+```
+
+Configure RSpec to use shoulda-matchers
+
+```ruby[spec/support/shoulda_matchers.rb]
+# frozen_string_literal: true
+
+require 'shoulda/matchers'
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+```
+
 ## Setup FactoryBot
 
 ```bash
-mkdir spec/support && touch spec/support/factory_bot.rb
-```
-
-This is a common operation - creating a folder and files in it. To reduce the typing, I made a handy script and called it [mkfile](https://github.com/kaka-ruto/dotfiles/blob/master/zsh/functions/mkfile). It creates the directory if it doesn't exist, and even add it to git!
-
-You can copy it to your own `mkfile` file and use it like so
-
-```bash
-mkfile spec/support/factory_bot.rb
+touch spec/support/factory_bot.rb
 ```
 
 Configure your test suites to include FactoryBot methods
@@ -134,7 +154,7 @@ Create the Rubocop configuration file
 touch .rubocop.yml
 ```
 
-Add the following to it
+Add a few custom rules for our API
 
 ```ruby[.rubocop.yml]
 require:
@@ -159,4 +179,7 @@ Lint/AmbiguousBlockAssociation:
 
 Style/Documentation:
   Enabled: false
+
+RSpec/ImplicitExpect:
+  EnforcedStyle: should
 ```

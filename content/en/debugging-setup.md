@@ -28,4 +28,4 @@ end
 bundle install
 ```
 
-Once we starting tracing errors, you'll see the power of pry!
+Once we start tracing errors, you'll see the power of pry!
