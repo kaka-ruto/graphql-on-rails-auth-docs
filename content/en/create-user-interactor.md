@@ -70,7 +70,7 @@ You can see me demonstrate this tests first approach in the screencasts
 
 Let's write the tests for the create user logic
 
-```ruby[spec/interactors/users/user_spec.rb]
+```ruby[spec/interactors/users/create_spec.rb]
 # frozen_string_literal: true
 
 module Users
