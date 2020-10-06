@@ -1,49 +1,35 @@
 ---
-title: Show User
+title: Show User Query
 description: Query to fetch a user object
-position: 14
+position: 15
 category: Queries
 ---
 
-## Definitions
+## Register the query
 
-Open the [queries docs](https://graphql-ruby.org/queries/executing_queries.html) page so we can go through this together
+GraphQL queries all begin with the `field` keyword.
 
-First, some definitions:
-
-- Schema: A GraphQL schema describes the functionality available to the client applications that connect to the GraphQL server. We can use any programming language to create a GraphQL schema and build an interface around it.
-
-- Query: A GraphQL query is used to read or fetch values from a GraphQL endpoint. It is a simple string that a GraphQL server can parse and respond to with data in JSON format
-
-- Variables: Query variables are dynamic values that can be passed to a GraphQL query during execution
-
-- Context: Application specific data passed onto resolver functions. The most common 'context' is the `context[:current_user]`
-
-- Resolver: A query/mutation function that generates a response for a GraphQL query
-
-NB: GraphQL has a single endpoint which always returns a JSON result.
+Let us register our first query
 
 
-## Fetch a single user
-
-Let's create the relevant files and folders
-
-```bash
-mkdir app/graphql/queries && mkdir app/graphql/queries/users && mkdir spec/graphql/queries && mkdir spec/graphql/queries/users
-
-touch app/graphql/queries/base_query.rb && touch app/graphql/queries/users/show.rb && spec/graphql/queries/users/show_spec.rb
-```
-
-Add the following to the `base_query`. The class is empty for now
-
-```ruby[app/graphql/queries/base_query.rb]
+```ruby[app/graphql/types/query_type.rb]
 # frozen_string_literal: true
 
-module Queries
-  class BaseQuery < GraphQL::Schema::Resolver
+module Types
+  class QueryType < Types::BaseObject
+    # Add root-level fields here.
+    # They will be entry points for queries on your schema.
+
+    field :show_user, resolver: Queries::Users::Show
   end
 end
 ```
+
+Now, whenever an incoming request uses the `query` keyword, it will go to `Types::QueryType`, which we specified on the schema
+
+Once inside the `QueryType`, it finds the relevant query using the `field` keyword, then resolve to the right `resolver`
+
+## Add the tests
 
 As usual, let's first write the tests
 
@@ -111,3 +97,45 @@ Out test `subject` calls the `execute` action of the `GraphqlController` in `app
 We have defined the query string as a method, but you can use whichever way, I have seen a number of people use RSpec's `let` but we'll stick to the method since I think it's cleaner.
 
 The query string above uses the squiggly [heredoc](https://infinum.com/the-capsized-eight/multiline-strings-ruby-2-3-0-the-squiggly-heredoc) syntax
+
+## Add the implementation
+
+And now the implementation!
+
+```ruby[app/graphql/queries/users/show.rb]
+# frozen_string_literal: true
+
+module Queries
+  module Users
+    class Show < Queries::BaseQuery
+      argument :id, ID, required: true
+
+      type Types::UserType, null: true
+
+      def resolve(id:)
+        result = ::Users::Get.call(id: id)
+
+        result.user
+      end
+    end
+  end
+end
+```
+
+The ID argument is the input needed for this operation to be done.
+
+The `type` is what can be returned from this operation. Which for this case we're saying return the `user` object and use the `UserType` to know what fields of the user object to return. Also, if the user is nil, return nil.
+
+Our resolve method takes in a required argument called `id`, which comes from the `argument :id`.
+
+It then calls the `Users::Show` interactor, which does the actual fetching of the user!
+
+We then return `result.user` which contains the `user` object.
+
+A few things to note:
+
+- You can only have a singe `type` defined in a query class such as this
+
+- You have to make sure the returned object matches your return `type` as defined, or nil if you have `null: true` specified
+
+Run the tests and watch them pass!

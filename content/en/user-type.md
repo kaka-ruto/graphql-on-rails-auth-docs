@@ -1,7 +1,7 @@
 ---
 title: User Type
 description: Creating the user type object in GraphQL
-position: 13
+position: 14
 category: Queries
 ---
 
