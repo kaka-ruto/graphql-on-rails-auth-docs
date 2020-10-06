@@ -1,6 +1,6 @@
 ---
 title: Update User Mutation
-description: Mutation to update a new user
+description: Mutation to update an existing user
 position: 18
 category: Mutations
 ---
@@ -14,9 +14,6 @@ Let us register the update mutation
 
 module Types
   class MutationType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for mutations on your schema.
-
     field :update_user, mutation: Mutations::Users::Update
   end
 end
@@ -97,7 +94,7 @@ class Mutations::Users::Update < Mutations::BaseMutation
   field :errors, [String], null: true
 
   def resolve(user_id:, **args)
-    user = ::Users::Get.call(id: user_id).user
+    user = ::Users::Show.call(id: user_id).user
 
     result = ::Users::Update.call(user: user, attributes: args)
 
