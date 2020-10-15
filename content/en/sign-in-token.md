@@ -1,7 +1,7 @@
 ---
 title: Sign In Token
 description: Generate token on sign in
-position: 26
+position: 27
 category: Authentication
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Sign Up Token
 description: Generate token on sign up
-position: 25
+position: 26
 category: Authentication
 ---
 

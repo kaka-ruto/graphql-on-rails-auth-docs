@@ -1,7 +1,7 @@
 ---
 title: Create User Mutation
 description: Mutation to create a new user
-position: 17
+position: 18
 category: Mutations
 ---
 

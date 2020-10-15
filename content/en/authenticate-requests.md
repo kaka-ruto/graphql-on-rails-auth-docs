@@ -1,7 +1,7 @@
 ---
 title: Authenticate API Requests
 description: Authenticating all requests
-position: 28
+position: 29
 category: Authenticating Requests
 ---
 

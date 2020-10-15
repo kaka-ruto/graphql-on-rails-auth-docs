@@ -1,7 +1,7 @@
 ---
 title: Delete User Interactor
 description: Interactor logic to delete a user
-position: 10
+position: 11
 category: Business logic
 ---
 

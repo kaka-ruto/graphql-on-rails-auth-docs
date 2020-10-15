@@ -1,7 +1,7 @@
 ---
 title: User Policy
 description: Authorizing API Requests
-position: 33
+position: 34
 category: Authorization
 ---
 

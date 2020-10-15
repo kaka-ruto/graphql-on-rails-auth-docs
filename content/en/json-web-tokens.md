@@ -1,7 +1,7 @@
 ---
 title: Introduction to JWTs
 description: Authenticating Users using JWTs
-position: 23
+position: 24
 category: Authentication
 ---
 

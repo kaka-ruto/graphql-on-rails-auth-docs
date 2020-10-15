@@ -1,7 +1,7 @@
 ---
 title: Show User Query
 description: Query to fetch a user object
-position: 15
+position: 16
 category: Queries
 ---
 

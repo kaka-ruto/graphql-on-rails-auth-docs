@@ -1,7 +1,7 @@
 ---
 title: Authenticate Signup Request
 description: Authenticating create user request
-position: 29
+position: 30
 category: Authenticating Requests
 ---
 

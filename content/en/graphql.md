@@ -1,7 +1,7 @@
 ---
 title: GraphQL Introduction
 description: Introduction to GraphQL
-position: 11
+position: 12
 category: GraphQl
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Create User Interactor
 description: Interactor logic to create a new user
-position: 7
+position: 8
 category: Business logic
 ---
 

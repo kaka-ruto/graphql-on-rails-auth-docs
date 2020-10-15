@@ -1,7 +1,7 @@
 ---
 title: Setting up JWT
 description: Authenticating Users using JWTs
-position: 24
+position: 25
 category: Authentication
 ---
 

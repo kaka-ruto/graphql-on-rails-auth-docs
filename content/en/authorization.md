@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: Authorizing API Requests
-position: 31
+position: 32
 category: Authorization
 ---
 

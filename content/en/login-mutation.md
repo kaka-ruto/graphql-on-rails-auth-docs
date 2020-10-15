@@ -1,7 +1,7 @@
 ---
 title: Login User Mutation
 description: Mutation to login an existing user
-position: 21
+position: 22
 category: Sessions
 ---
 

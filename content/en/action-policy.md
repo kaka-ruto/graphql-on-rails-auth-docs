@@ -1,7 +1,7 @@
 ---
 title: Authorization with ActionPolicy
 description: Authorizing API Requests
-position: 32
+position: 33
 category: Authorization
 ---
 

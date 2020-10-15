@@ -1,7 +1,7 @@
 ---
 title: Authenticate Login Request
 description: Authenticating login user request
-position: 30
+position: 31
 category: Authenticating Requests
 ---
 

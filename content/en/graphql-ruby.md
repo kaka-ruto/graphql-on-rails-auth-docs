@@ -1,7 +1,7 @@
 ---
 title: GraphQL Ruby
 description: Setting up GraphQL Ruby
-position: 12
+position: 13
 category: GraphQl
 ---
 

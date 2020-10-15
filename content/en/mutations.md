@@ -1,7 +1,7 @@
 ---
 title: Mutations
 description: What are GraphQL Mutations?
-position: 16
+position: 17
 category: Mutations
 ---
 

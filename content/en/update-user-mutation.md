@@ -1,7 +1,7 @@
 ---
 title: Update User Mutation
 description: Mutation to update an existing user
-position: 18
+position: 19
 category: Mutations
 ---
 

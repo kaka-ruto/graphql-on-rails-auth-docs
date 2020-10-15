@@ -1,7 +1,7 @@
 ---
 title: Queries
 description: What are GraphQL queries?
-position: 13
+position: 14
 category: Queries
 ---
 

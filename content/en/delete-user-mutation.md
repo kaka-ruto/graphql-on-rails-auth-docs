@@ -1,7 +1,7 @@
 ---
 title: Delete User Mutation
 description: Mutation to delete an existing user
-position: 19
+position: 20
 category: Mutations
 ---
 

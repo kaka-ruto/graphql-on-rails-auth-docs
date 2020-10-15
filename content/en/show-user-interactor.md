@@ -1,7 +1,7 @@
 ---
 title: Show User Interactor
 description: Interactor logic to show a user
-position: 8
+position: 9
 category: Business logic
 ---
 

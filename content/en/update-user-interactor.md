@@ -1,7 +1,7 @@
 ---
 title: Update User Interactor
 description: Interactor logic to update a user
-position: 9
+position: 10
 category: Business logic
 ---
 

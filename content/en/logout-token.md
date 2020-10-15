@@ -1,7 +1,7 @@
 ---
 title: Logout Token
 description: Logout with token
-position: 27
+position: 28
 category: Authentication
 ---
 
