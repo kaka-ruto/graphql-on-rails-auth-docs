@@ -15,15 +15,10 @@ export default theme({
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/analytics-module
-    [
-      "@nuxtjs/google-analytics",
-      {
-        id: process.env.googleAnalyticsId,
-      },
-    ],
+    "@nuxtjs/google-analytics",
   ],
   // Env variables: https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
-  privateRuntimeConfig: {
-    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+  publicRuntimeConfig: {
+    id: process.env.GOOGLE_ANALYTICS_ID,
   },
 });
