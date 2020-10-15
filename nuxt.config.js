@@ -17,8 +17,12 @@ export default theme({
     // Doc: https://github.com/nuxt-community/analytics-module
     "@nuxtjs/google-analytics",
   ],
+  googleAnalytics: {
+    id: "UA-176712234-1", // Used as fallback if no runtime config is provided
+  },
   // Env variables: https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
-  publicRuntimeConfig: {
+  // seems not to be working
+  privateRuntimeConfig: {
     id: process.env.GOOGLE_ANALYTICS_ID,
   },
 });
