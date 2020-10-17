@@ -30,7 +30,7 @@ module Queries
         context 'unauthorized' do
           let(:variables) { { userId: unauthorized_user.id, email: 'arianna@email.com' } }
 
-          it 'returns unauthorized status code' do
+          it 'returns error message' do
             execute
 
             json = JSON.parse(response.body)
