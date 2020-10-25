@@ -2,5 +2,6 @@
   "title": "GraphQL on Rails Auth",
   "url": "https://auth.graphql-on-rails.com",
   "github": "kaka-ruto/graphql-on-rails-auth-docs",
+  "defaultDir": "",
   "twitter": "@kaka_ruto"
 }

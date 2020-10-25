@@ -16,8 +16,8 @@ features:
   - Deploy to AWS
 ---
 
-<img src="/gor-banner.png" class="light-img" />
-<img src="/gor-banner.png" class="dark-img" />
+<img src="/preview.png" class="light-img" />
+<img src="/preview.png" class="dark-img" />
 
 A fully-functional, backend GraphQL API with authentication, authorization, user account management features and tests!
 
