@@ -27,7 +27,7 @@ module Users
     let(:user) { create(:user) }
 
     context 'when attributes are valid' do
-      let(:attributes) { { first_name: 'Imani', last_name: 'Alpha' } }
+      let(:attributes) { { first_name: 'Imani', lastname: 'Alpha' } }
 
       it 'succeeds' do
         expect(context).to be_a_success
