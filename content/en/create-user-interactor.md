@@ -72,6 +72,7 @@ Let's write the tests for the create user logic
 
 ```ruby[spec/interactors/users/create_spec.rb]
 # frozen_string_literal: true
+require 'rails_helper
 
 module Users
   RSpec.describe Create, type: :interactor do
