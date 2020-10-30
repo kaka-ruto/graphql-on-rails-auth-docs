@@ -183,3 +183,15 @@ Style/Documentation:
 RSpec/ImplicitExpect:
   EnforcedStyle: should
 ```
+
+## Require the support files
+
+All the files we've added to `support/` need to be `require`d for Rails to be able to access them.
+
+RSpec already gave us a line of code that `require`s all support files
+
+Find the line inside `spec/rails_helper.rb` and uncomment it
+
+```ruby[spec/rails_helper.rb]
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+```
