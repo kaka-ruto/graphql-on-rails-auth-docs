@@ -10,7 +10,7 @@ category: Business logic
 Create the implementation and test files
 
 ```bash
-touch app/interactors/users/show.rb && touch spec/interactors/users/show_spec.rb
+touch app/interactors/users/show.rb && touch spec/interactors/users/get_spec.rb
 ```
 
 ## Test
@@ -61,13 +61,13 @@ end
 Run the tests and watch them fail
 
 ```bash
-rspec spec/interactors/users/show_spec.rb
+rspec spec/interactors/users/get_spec.rb
 ```
 
 And to run a single test
 
 ```bash
-rspec spec/interactors/users/show_spec.rb:20
+rspec spec/interactors/users/get_spec.rb:20
 ```
 
 ## Make The Tests Pass
