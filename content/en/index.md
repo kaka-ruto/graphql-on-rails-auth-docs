@@ -12,7 +12,7 @@ features:
   - Permission-based authorization (Pundit-like)
   - 94% test coverage!
   - Local development with Docker
-  - Setup Continuous Intergration and Continuos Deployment (CI/CD) with Docker
+  - Setup Continuous Integration and Continuous Deployment (CI/CD) with Docker
   - Deploy to AWS
 ---
 

@@ -65,7 +65,7 @@ class Mutations::Users::Update < Mutations::BaseMutation
   ...
 
   def resolve(user_id:, **args)
-    user = ::Users::Get.call(id: user_id).user
+    user = ::Users::Show.call(id: user_id).user
 
     authorize! user, to: :update? if user
 

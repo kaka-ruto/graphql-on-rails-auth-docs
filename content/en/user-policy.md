@@ -28,7 +28,7 @@ Let's create a user policy class with which to describe how users will access
 3. Actions affecting themselves
 
 ```bash
-touch app/policies/user_policy_spec.rb && touch spec/policies/user_policy_spec.rb
+touch app/policies/user_policy.rb && touch spec/policies/user_policy_spec.rb
 ```
 
 ## Add tests

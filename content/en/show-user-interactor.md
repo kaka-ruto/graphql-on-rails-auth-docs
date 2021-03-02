@@ -10,7 +10,7 @@ category: Business logic
 Create the implementation and test files
 
 ```bash
-touch app/interactors/users/show.rb && touch spec/interactors/users/get_spec.rb
+touch app/interactors/users/show.rb && touch spec/interactors/users/show_spec.rb
 ```
 
 ## Test
@@ -21,7 +21,7 @@ Let's write the tests for the show user logic
 # frozen_string_literal: true
 
 module Users
-  RSpec.describe Get, type: :interactor do
+  RSpec.describe Show, type: :interactor do
     subject(:context) { described_class.call(id: id) }
 
     let(:user) { create(:user) }
@@ -61,13 +61,13 @@ end
 Run the tests and watch them fail
 
 ```bash
-rspec spec/interactors/users/get_spec.rb
+rspec spec/interactors/users/show_spec.rb
 ```
 
 And to run a single test
 
 ```bash
-rspec spec/interactors/users/get_spec.rb:20
+rspec spec/interactors/users/show_spec.rb:20
 ```
 
 ## Make The Tests Pass
@@ -78,7 +78,7 @@ This is how our logic for showing a user will look like
 # frozen_string_literal: true
 
 module Users
-  class Get < BaseInteractor
+  class Show < BaseInteractor
     delegate :id, to: :context
 
     def call
